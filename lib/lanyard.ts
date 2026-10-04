@@ -1,4 +1,5 @@
-export const DISCORD_ID = "544047377540186114";
+export const DISCORD_ID =
+  process.env.NEXT_PUBLIC_DISCORD_ID ?? "544047377540186114";
 
 export type LanyardActivity = {
   id: string;

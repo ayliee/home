@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Mono, Caveat, Parisienne } from "next/font/google";
 import "./globals.css";
+import { siteDescription, siteTitle, siteUrl } from "@/lib/site";
 
 const mono = Space_Mono({
   subsets: ["latin"],
@@ -24,15 +25,26 @@ const script = Parisienne({
 });
 
 export const metadata: Metadata = {
-  title: "Ayle / Meow",
-  description:
-    "life is lowkey a string of memories, has anything ever remained besides them?",
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
+  applicationName: siteTitle,
+  authors: [{ name: "Ayle", url: "https://github.com/ayliee" }],
+  creator: "Ayle",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Ayle / Meow",
-    description:
-      "life is lowkey a string of memories, has anything ever remained besides them?",
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: siteTitle,
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {

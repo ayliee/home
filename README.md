@@ -51,6 +51,11 @@ portfolio/
 │   ├── lanyard.ts        Lanyard types, status colors, avatar and asset URL helpers
 │   └── brandPaths.ts     Vendored 24x24 brand path data, no runtime dependency
 │
+├── app/
+│   ├── icon.svg          Favicon, served from the App Router metadata API
+│   ├── robots.ts         robots.txt route
+│   └── sitemap.ts        sitemap.xml route
+│
 ├── public/
 │   └── portrait.jpg      Avatar used in the hero polaroid
 │
@@ -100,3 +105,36 @@ payloads to state. It reconnects after five seconds on close and falls back to
 
 Reduced motion is respected globally in `globals.css`, images use `next/image`
 with explicit `sizes`, and focus rings are visible for keyboard navigation.
+
+## Deployment (Vercel)
+
+The project is a stock Next.js App Router app with no custom server, no native
+dependencies and no build step outside `next build`, so Vercel detects and
+builds it with zero configuration.
+
+1. Push the repository to GitHub.
+2. On vercel.com choose New Project and import `ayliee/home`.
+3. Keep the detected defaults: framework Next.js, build `next build`,
+   install `npm install`, output handled by the adapter.
+4. Deploy.
+
+### Environment variables
+
+Both are optional, the app ships working defaults.
+
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL for metadata, Open Graph and the sitemap. Only needed for a custom domain, otherwise Vercel's own URL is used. |
+| `NEXT_PUBLIC_DISCORD_ID` | Discord account for the presence card. Defaults to the id in `lib/lanyard.ts`. |
+
+### What is already configured
+
+- `metadataBase` resolves from `NEXT_PUBLIC_SITE_URL`, then
+  `VERCEL_PROJECT_PRODUCTION_URL`, then `VERCEL_URL`, then localhost.
+- `robots.txt` and `sitemap.xml` are generated routes.
+- `next/image` remote patterns allow the Discord and Spotify CDNs.
+- Security headers (`X-Content-Type-Options`, `Referrer-Policy`,
+  `X-Frame-Options`) are set in `next.config.mjs`.
+- `engines.node` is pinned to 18.18 or newer, matching Vercel's runtimes.
+- Every route prerenders as static content, the Lanyard socket runs in the
+  browser, so the deployment needs no serverless functions to stay live.
