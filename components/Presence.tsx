@@ -119,21 +119,23 @@ export default function Presence() {
   return (
     <section id="presence" className="scroll-mt-24 py-10 sm:py-14">
       <Reveal>
-        <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-1">
+        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1">
           <h2 className="section-title">Live Presence</h2>
-          <p className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted">
-            <span className="relative flex h-2 w-2">
-              <span
-                className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-70"
-                style={{ backgroundColor: status.color }}
-              />
-              <span
-                className="relative inline-flex h-2 w-2 rounded-full"
-                style={{ backgroundColor: status.color }}
-              />
-            </span>
-            Lanyard · real-time
-          </p>
+          <span
+            className="relative flex h-2 w-2"
+            role="img"
+            aria-label={`Discord status: ${status.label}`}
+            title={status.label}
+          >
+            <span
+              className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-70"
+              style={{ backgroundColor: status.color }}
+            />
+            <span
+              className="relative inline-flex h-2 w-2 rounded-full"
+              style={{ backgroundColor: status.color }}
+            />
+          </span>
         </div>
         <div className="rule mt-2" />
       </Reveal>
