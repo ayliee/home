@@ -41,16 +41,27 @@ export const metadata: Metadata = {
   creator: "Ayle",
   alternates: { canonical: "/" },
   openGraph: {
+    // siteName is intentionally omitted, it renders as a second heading
+    // above the title in Discord and Slack unfurls.
     title: siteTitle,
     description: siteDescription,
     url: siteUrl,
-    siteName: siteTitle,
     type: "website",
+    images: [
+      {
+        url: "/icon.png",
+        width: 256,
+        height: 256,
+        alt: siteTitle,
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
+    // summary keeps the icon as a small square on the right of the card
+    card: "summary",
     title: siteTitle,
     description: siteDescription,
+    images: ["/icon.png"],
   },
   robots: { index: true, follow: true },
 };
