@@ -29,7 +29,7 @@ export default function Hero() {
             </div>
 
             <div className="relative mt-6 pl-1">
-              <span className="font-hand text-4xl font-bold text-lime drop-shadow-[1px_1px_0_rgba(0,0,0,.15)] sm:text-5xl">
+              <span className="inline-block -rotate-1 bg-lime px-3 py-1 font-hand text-3xl font-bold italic leading-none text-ink shadow-[2px_2px_0_rgba(22,22,22,.12)] sm:text-4xl">
                 Look Here!
               </span>
               <p className="mt-1 max-w-[30ch] -rotate-1 font-hand text-[1.35rem] leading-snug text-ink/85 sm:text-2xl">
