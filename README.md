@@ -127,6 +127,23 @@ Both are optional, the app ships working defaults.
 | `NEXT_PUBLIC_SITE_URL` | Canonical URL for metadata, Open Graph and the sitemap. Only needed for a custom domain, otherwise Vercel's own URL is used. |
 | `NEXT_PUBLIC_DISCORD_ID` | Discord account for the presence card. Defaults to the id in `lib/lanyard.ts`. |
 
+### Troubleshooting
+
+If Vercel reports "Routes Manifest Could Not Be Found", the build output was not
+found where the adapter expects it. Check, in Project Settings, Build and
+Development Settings:
+
+- Framework Preset is Next.js.
+- Build Command is not overridden, it should be `next build`.
+- Output Directory is not overridden, leave it empty. Next.js writes to `.next`
+  and the adapter finds it on its own.
+- Root Directory is the repository root, this project is not a monorepo.
+- There is no `vercel.json` adding `outputDirectory`, `cleanUrls` or similar
+  static site options, those conflict with the Next.js builder. This repo
+  intentionally ships without a `vercel.json`.
+
+Then redeploy with "Use existing build cache" unchecked.
+
 ### What is already configured
 
 - `metadataBase` resolves from `NEXT_PUBLIC_SITE_URL`, then
