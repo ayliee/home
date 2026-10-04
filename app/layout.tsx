@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Mono, Caveat, Parisienne } from "next/font/google";
+import { Space_Mono, Caveat, Parisienne, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { siteDescription, siteTitle, siteUrl } from "@/lib/site";
 
@@ -21,6 +21,14 @@ const script = Parisienne({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-script",
+  display: "swap",
+});
+
+const garamond = EB_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-garamond",
   display: "swap",
 });
 
@@ -55,7 +63,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${mono.variable} ${hand.variable} ${script.variable}`}>
+    <html lang="en" className={`${mono.variable} ${hand.variable} ${script.variable} ${garamond.variable}`}>
       <body className="font-mono antialiased">{children}</body>
     </html>
   );

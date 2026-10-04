@@ -19,6 +19,7 @@ const config: Config = {
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
         hand: ["var(--font-hand)", "cursive"],
         script: ["var(--font-script)", "cursive"],
+        garamond: ["var(--font-garamond)", "Garamond", "Georgia", "serif"],
       },
       boxShadow: {
         polaroid: "0 10px 24px -12px rgba(20,20,20,.45)",

@@ -23,7 +23,7 @@ export type SocialLink = {
 };
 
 export const profile = {
-  name: "Maham Da Goat",
+  name: "Maham Afzal",
   /** Short wordmark shown in the nav bar. */
   navName: "Ayle",
   role: "Graphic Designer · Developer · UI/UX",

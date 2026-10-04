@@ -43,7 +43,7 @@ export default function Hero() {
         {/* right column: name and resume blocks */}
         <div className="order-1 lg:order-2">
           <Reveal>
-            <h1 className="font-script text-[3.2rem] leading-[0.95] sm:text-7xl lg:text-[5.4rem]">
+            <h1 className="font-garamond text-[3rem] font-medium leading-[1.05] tracking-[0.01em] sm:text-6xl lg:text-[4.6rem]">
               {profile.name}
             </h1>
             <p className="mt-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted sm:text-xs">
