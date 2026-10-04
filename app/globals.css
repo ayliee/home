@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --grid: rgba(80, 78, 64, 0.16);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: #fbf8ec;
+  color: #161616;
+  overflow-x: hidden;
+}
+
+@layer components {
+  /* graph-paper texture used on the page edges */
+  .grid-paper {
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+
+  .rule {
+    @apply h-[2px] w-full bg-ink/85;
+  }
+
+  .section-title {
+    @apply font-mono text-[1.45rem] sm:text-3xl tracking-[0.18em] text-ink;
+  }
+
+  .tape {
+    @apply absolute z-20 h-6 w-20 rotate-[-6deg] bg-[#E6DFAE]/80 shadow-sm;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+}
+
+::selection {
+  background: #c7d43f;
+  color: #161616;
+}
+
+/* nicer focus ring for keyboard users */
+:focus-visible {
+  outline: 2px dashed #161616;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* hide scrollbar on the mobile snap rails */
+.no-bar::-webkit-scrollbar {
+  display: none;
+}
+.no-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
