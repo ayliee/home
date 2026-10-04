@@ -76,8 +76,7 @@ export default function Hero() {
                   className="group/soft flex flex-col items-center gap-1.5 text-center"
                 >
                   <span
-                    style={{ color: s.color }}
-                    className="grid h-11 w-11 place-items-center rounded-2xl border border-line/80 bg-white shadow-[0_6px_14px_-8px_rgba(20,20,20,.5)] transition-transform duration-300 group-hover/soft:-translate-y-1 group-hover/soft:rotate-6 sm:h-12 sm:w-12"
+                    className="grid h-11 w-11 place-items-center rounded-2xl bg-ink text-white shadow-[0_6px_14px_-8px_rgba(20,20,20,.55)] transition-transform duration-300 group-hover/soft:-translate-y-1 group-hover/soft:rotate-6 sm:h-12 sm:w-12"
                   >
                     <TechIcon slug={s.slug} className="h-6 w-6 sm:h-[26px] sm:w-[26px]" />
                   </span>
